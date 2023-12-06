@@ -11,7 +11,7 @@ namespace ConsoleRPG
     {
         static void Main(string[] args)
         {
-            WorldGenerator world = new WorldGenerator(200, 200);
+            WorldGenerator world = new WorldGenerator(1000, 1000);
             Console.ReadKey();
         }
     }

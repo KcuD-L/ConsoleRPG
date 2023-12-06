@@ -39,6 +39,9 @@ namespace ConsoleRPG.Mathm
 
         public static float Lenght(Vector2 a) => (float)Math.Pow(Math.Pow(a.x, 2) + Math.Pow(a.y, 2), 0.5f);
 
+        public static float Distance(Vector2 a, Vector2 b) => (float)Lenght(new Vector2(b.x - a.x, b.y-a.y));
+
+
         public static float ScalarMult(Vector2 a, Vector2 b, float corner) => (float)((a.x * b.x + a.y * b.y) * Math.Cos(corner));
 
         public static Vector2 Lenght(Vector2 a, Vector2 b) => new Vector2(b.x - a.x, b.y - a.y);
