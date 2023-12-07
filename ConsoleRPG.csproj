@@ -45,6 +45,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Data\DataWorker.cs" />
+    <Compile Include="Data\InputParser.cs" />
     <Compile Include="Mathm\Vector2.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
