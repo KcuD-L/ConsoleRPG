@@ -5,23 +5,47 @@ using System.Text;
 using System.Threading.Tasks;
 using ConsoleRPG.Mathm;
 using ConsoleRPG.Data;
+using System.Runtime.InteropServices;
 
 namespace ConsoleRPG
 {
     static class Program
     {
-        static void Main(string[] args)
+        static void Main(string[] args) 
         {
-            int? r = InputParser.InputBounds(0, 100);
+            Console.SetWindowSize(Console.LargestWindowWidth, Console.LargestWindowHeight);
+            var consoleWnd = System.Diagnostics.Process.GetCurrentProcess().MainWindowHandle;
+            Imports.SetWindowPos(consoleWnd, 0, 0, 0, 0, 0, Imports.SWP_NOSIZE | Imports.SWP_NOZORDER);
+
+            InputParser.PrintLineCenter("~~~ Console RPG ~~~");
+            InputParser.PrintSpace(10);
+
+            
+            Console.ReadKey();
+        }
+
+        static void WorldOptions()
+        {
+            Console.WriteLine(" Выберите размер мира");
+            int? r = InputParser.InputBounds(0, 100); ;
             if (r != null)
             {
-                Console.WriteLine("zaebis'");
+                WorldGenerator world = new WorldGenerator(1);
             }
             else
             {
-                Console.WriteLine("Huita");
             }
-            Console.ReadKey();
         }
+    }
+    static class Imports
+    {
+        public static IntPtr HWND_BOTTOM = (IntPtr)1;
+        public static IntPtr HWND_TOP = (IntPtr)0;
+
+        public static uint SWP_NOSIZE = 1;
+        public static uint SWP_NOZORDER = 4;
+
+        [DllImport("user32.dll", EntryPoint = "SetWindowPos")]
+        public static extern IntPtr SetWindowPos(IntPtr hWnd, int hWndInsertAfter, int x, int Y, int cx, int cy, uint wFlags);
     }
 }

@@ -33,5 +33,25 @@ namespace ConsoleRPG.Data
             }
             return null;
         }
+
+        static public void PrintLineCenter(string txt)
+        {
+            int W = Console.WindowWidth;
+            int l = txt.Length;
+            int space = (W / 2) - (l / 2);
+            for (int i = 0; i < space; i++)
+            {
+                txt = txt.Insert(0, " ");
+            }
+            Console.WriteLine(txt);
+        }
+
+        static public void PrintSpace(int n)
+        {
+            for (int i = 0; i < n; i++)
+            {
+                Console.WriteLine();
+            }
+        }
     }
 }
