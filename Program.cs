@@ -20,21 +20,25 @@ namespace ConsoleRPG
             InputParser.PrintLineCenter("~~~ Console RPG ~~~");
             InputParser.PrintSpace(10);
 
-            
-            Console.ReadKey();
+
+            WorldOptions();
         }
 
         static void WorldOptions()
         {
-            Console.WriteLine(" Выберите размер мира");
-            int? r = InputParser.InputBounds(0, 100); ;
+            Console.WriteLine("  Выберите размер мира (от 5 до 100)");
+            int? r = InputParser.InputBounds(5, 100);
             if (r != null)
             {
-                WorldGenerator world = new WorldGenerator(1);
+                WorldGenerator world = new WorldGenerator((int)r);
             }
             else
             {
+                Console.Clear();
+                InputParser.PrintLineCenter("Введённые данные не верны");
+                WorldOptions();
             }
+            Console.ReadKey();
         }
     }
     static class Imports
