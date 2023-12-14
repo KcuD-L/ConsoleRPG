@@ -18,6 +18,7 @@ namespace ConsoleRPG
             Imports.SetWindowPos(consoleWnd, 0, 0, 0, 0, 0, Imports.SWP_NOSIZE | Imports.SWP_NOZORDER);
 
             InputParser.PrintLineCenter("~~~ Console RPG ~~~");
+            Beep.Beeb.PlayMusic(Beep.Sounds.example);
             InputParser.PrintSpace(10);
 
 

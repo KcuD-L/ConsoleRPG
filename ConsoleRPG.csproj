@@ -44,6 +44,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Beep\Beeb.cs" />
     <Compile Include="Data\DataWorker.cs" />
     <Compile Include="Data\InputParser.cs" />
     <Compile Include="Mathm\Vector2.cs" />
