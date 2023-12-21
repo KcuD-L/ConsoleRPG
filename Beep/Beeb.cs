@@ -36,9 +36,9 @@ namespace ConsoleRPG.Beep
     public class Sounds
     {
         static public int[,] example = { { Notes.C(), 1000},
-                                         { Notes.E(), 500 }, 
-                                         { Notes.D(), 200 }, 
-                                         { Notes.G(), 1000} 
+                                         { Notes.E(), 500 },
+                                         { Notes.D(), 200 },
+                                         { Notes.G(), 1000}
                                        };
     }
 }

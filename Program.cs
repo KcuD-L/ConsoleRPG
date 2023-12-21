@@ -18,7 +18,6 @@ namespace ConsoleRPG
             Imports.SetWindowPos(consoleWnd, 0, 0, 0, 0, 0, Imports.SWP_NOSIZE | Imports.SWP_NOZORDER);
 
             InputParser.PrintLineCenter("~~~ Console RPG ~~~");
-            Beep.Beeb.PlayMusic(Beep.Sounds.example);
             InputParser.PrintSpace(10);
 
 
@@ -28,9 +27,10 @@ namespace ConsoleRPG
         static void WorldOptions()
         {
             Console.WriteLine("  Выберите размер мира (от 5 до 100)");
-            int? r = InputParser.InputBounds(5, 100);
+            int? r = InputParser.InputBounds(1, 100);
             if (r != null)
             {
+                InputParser.PrintSpace(2);
                 WorldGenerator world = new WorldGenerator((int)r);
             }
             else

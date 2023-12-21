@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace ConsoleRPG.Mathm
 {
@@ -39,8 +40,17 @@ namespace ConsoleRPG.Mathm
 
         public static float Lenght(Vector2 a) => (float)Math.Pow(Math.Pow(a.x, 2) + Math.Pow(a.y, 2), 0.5f);
 
-        public static float Distance(Vector2 a, Vector2 b) => (float)Lenght(new Vector2(b.x - a.x, b.y-a.y));
+        public static float Distance(Vector2 a, Vector2 b) => Math.Abs((float)Lenght(new Vector2(b.x - a.x, b.y-a.y)));
 
+        public static float AverageDistance(Vector2 a, List<Vector2> b)
+        {
+            float r = 0;
+            for (int i = 0; i < b.Count; i++)
+            {
+                r += Distance(a, b[i]);
+            }
+            return r / b.Count;
+        }
 
         public static float ScalarMult(Vector2 a, Vector2 b, float corner) => (float)((a.x * b.x + a.y * b.y) * Math.Cos(corner));
 
